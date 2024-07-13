@@ -81,6 +81,14 @@ public class menu extends AppCompatActivity {
             }
         });
 
+        calcularConsumo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent backP = new Intent(menu.this, calculadoraConsumos.class);
+                startActivity(backP);
+            }
+        });
+
 
     }
 }
