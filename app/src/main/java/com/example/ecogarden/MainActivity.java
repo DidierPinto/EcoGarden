@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        inicio = findViewById(R.id.button);
-        ingresarUsuario = findViewById(R.id.editTextText);
+        inicio = findViewById(R.id.cacular);
+        ingresarUsuario = findViewById(R.id.horas);
         ingresarContraseña = findViewById(R.id.editTextTextPassword);
-        registrarse = findViewById(R.id.textView2);
+        registrarse = findViewById(R.id.muestraR);
 
         inicio.setOnClickListener(new View.OnClickListener() {
             @Override

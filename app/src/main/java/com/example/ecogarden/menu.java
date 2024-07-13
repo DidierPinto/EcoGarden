@@ -19,10 +19,10 @@ public class menu extends AppCompatActivity {
     private TextView resultadoPrecioPatin;
     private TextView resultadoPrecioAuto;
     private TextView resultadoPrecioBicleta;
-    private EditText producto1;
-    private EditText producto2;
-    private EditText producto3;
-    private Button calcular;
+    private EditText productos;
+    private Button calcularDescuento;
+    private Button calcularConsumo;
+    private EditText precio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +32,55 @@ public class menu extends AppCompatActivity {
 
         cerrarSesion = findViewById(R.id.textView3);
 
+        productos = findViewById(R.id.editTextText6);
+        precio = findViewById(R.id.editTextText7);
+
+        resultadoPrecioBicleta = findViewById(R.id.textView20);
+        resultadoPrecioAuto = findViewById(R.id.textView21);
+        resultadoPrecioPatin = findViewById(R.id.textView22);
+
+        calcularDescuento = findViewById(R.id.button3);
+        calcularConsumo = findViewById(R.id.button4);
+
+
+        calcularDescuento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ingreseProducto = productos.getText().toString();
+                double precioingresado = Double.parseDouble(precio.getText().toString());
+                double precioDescuento = precioingresado;
+
+                switch (ingreseProducto.toLowerCase()){
+
+                    case "bicicleta":
+                        precioDescuento *= 0.5;
+                        resultadoPrecioBicleta.setText(String.format("BICICLETA ELECTRICA: " + precioDescuento));
+                        break;
+
+                    case "auto":
+                        precioDescuento *= 0.5;
+                        resultadoPrecioAuto.setText(String.format("AUTO ELECTRICO: " + precioDescuento));
+                        break;
+
+                    case "patineta":
+                        precioDescuento *= 0.5;
+                        resultadoPrecioPatin.setText(String.format("PATINETA ELECTRICA: " + precioDescuento));
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent back = new Intent(menu.this, MainActivity.class);
-                startActivity(back);
+                Intent backP = new Intent(menu.this, MainActivity.class);
+                startActivity(backP);
             }
         });
+
 
     }
 }
